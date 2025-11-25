@@ -5,8 +5,8 @@ import numpy as np
 model = AbstractModel()
 
 # Índices y Conjuntos
-model.I = Set()
-model.T = Set()
+model.I = RangeSet(1, 6)
+model.T = RangeSet(1, 12)
 
 # Parámetros
 model.c = Param(model.I, default=0, domain=NonNegativeReals)  # Costos
@@ -58,4 +58,13 @@ def change_definition_rule_pp(model, i, t):
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
 
 # Instanciación y resolución del modelo
-prueba
+dp = DataPortal()
+dp.load(filename='Asignacion_consumos.csv', param=model.k, index=(model.I, model.T))
+dp.load(filename='Asignacion_tramos.csv', param=(model.c, model.P0), index=model.I)
+inst=model.create_instance(dp, name=Asignacion)
+opt = SolverFactory('gurobi')
+results = opt.solve(inst, tee=True, options={'MIPGap': 0.05})
+inst.solutions.load_from(results)
+#inst.display()
+print(results)
+#print(f"Objective Value: {value(inst.Objective)}")
