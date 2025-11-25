@@ -35,12 +35,14 @@ def objective_rule(model):
 model.Objective = Objective(rule=objective_rule, sense=minimize)
 
 # Restricciones
+
 def power_balance_rule(model, i, t):
     if t == model.T.first():
         return model.P[i, t] == model.P0[i] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[t, i]
     else:
         return model.P[i, t] == model.P[i, model.T.prev(t)] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[t, i]
 model.PowerBalance = Constraint(model.I, model.T, rule=power_balance_rule)
+
 
 def change_limit_rule(model, i):
     return sum(model.Y[i, t] for t in model.T) <= model.N
@@ -60,12 +62,12 @@ def change_definition_rule_pp(model, i, t):
     return model.P[i, t] >= model.P[model.I.prev(i), t]
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
 
-
-def power_minimum_rule(model, i, t):
-    return model.P[i, t] >= model.P[model.I.prev(i), t]
-model.PowerMinimum = Constraint(model.I, model.T, rule=power_minimum_rule)
-
 '''
+def power_minimum_rule(model, i, t):
+    return model.P[i, t] >= model.P0[i]
+model.PowerMinimum = Constraint(model.I, model.T, rule=power_minimum_rule)
+'''
+
 def power_minimum_rule2(model, i, t):
     # Evitar error en el primer periodo
     if t == model.T.first():
@@ -73,7 +75,7 @@ def power_minimum_rule2(model, i, t):
     # Para los demás periodos
     return model.P[i, t] >= model.P[i, model.T.prev(t)]
 model.PowerMinimum = Constraint(model.I, model.T, rule=power_minimum_rule2)
-'''
+
 
 
 # Instanciación y resolución del modelo
