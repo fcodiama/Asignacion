@@ -60,12 +60,12 @@ def change_definition_rule_pp(model, i, t):
     return model.P[i, t] >= model.P[model.I.prev(i), t]
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
 
-'''
+
 def power_minimum_rule(model, i, t):
     return model.P[i, t] >= model.P[model.I.prev(i), t]
 model.PowerMinimum = Constraint(model.I, model.T, rule=power_minimum_rule)
-'''
 
+'''
 def power_minimum_rule2(model, i, t):
     # Evitar error en el primer periodo
     if t == model.T.first():
@@ -73,7 +73,7 @@ def power_minimum_rule2(model, i, t):
     # Para los demás periodos
     return model.P[i, t] >= model.P[i, model.T.prev(t)]
 model.PowerMinimum = Constraint(model.I, model.T, rule=power_minimum_rule2)
-
+'''
 
 
 # Instanciación y resolución del modelo
