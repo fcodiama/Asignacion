@@ -58,3 +58,4 @@ def change_definition_rule_pp(model, i, t):
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
 
 # Instanciación y resolución del modelo
+prueba
