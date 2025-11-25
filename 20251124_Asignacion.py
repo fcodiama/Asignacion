@@ -10,7 +10,7 @@ model.T = RangeSet(1, 12)
 
 # Parámetros
 model.c = Param(model.I, default=0, domain=NonNegativeReals)  # Costos
-model.k = Param(model.I, model.T, default=0, domain=NonNegativeReals)  # Consumos
+model.k = Param(model.T, model.I, default=0, domain=NonNegativeIntegers)  # Consumos
 model.P0 = Param(model.I, default=0, domain=NonNegativeReals)  # Potencias iniciales por tramo
 model.ce = Param(initialize=10.93) #coste fijo de enganche  (euros)
 model.cv = Param(initialize=9.69) #coste fijo de verificacion (euros)
@@ -29,16 +29,16 @@ model.Y = Var(model.I, model.T, domain=Binary)  # Indicador de cambios realizado
 # Función Objetivo
 def objective_rule(model):
     fixed_costs = sum((model.ce + model.cv)*model.Y[i,t] for i in model.I for t in model.T)
-    variable_costs = sum((model.cde + model.cda) * model.HU[i, t] + (model.cde + model.cda)*model.HD[i, t] + model.c[i]*2 * model.S[i, t] + model.c[i]*model.k[i,t] for i in model.I for t in model.T)
+    variable_costs = sum((model.cde + model.cda) * model.HU[i, t] + (model.cde + model.cda)*model.HD[i, t] + model.c[i]*2 * model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
     return fixed_costs + variable_costs
 model.Objective = Objective(rule=objective_rule, sense=minimize)
 
 # Restricciones
 def power_balance_rule(model, i, t):
     if t == model.T.first():
-        return model.P[i, t] == model.P0[i] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[i, t]
+        return model.P[i, t] == model.P0[i] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[t, i]
     else:
-        return model.P[i, t] == model.P[i, model.T.prev(t)] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[i, t]
+        return model.P[i, t] == model.P[i, model.T.prev(t)] + model.HU[i,t] - model.HD[i,t] + model.S[i,t] - model.k[t, i]
 model.PowerBalance = Constraint(model.I, model.T, rule=power_balance_rule)
 
 def change_limit_rule(model, i):
@@ -50,19 +50,21 @@ def change_definition_rule_hu(model, i, t):
 model.ChangeDefinitionHU = Constraint(model.I, model.T, rule=change_definition_rule_hu)
 
 def change_definition_rule_hd(model, i, t):
-    return HD[i, t] <= model.M*model.Y[i, t]
+    return model.HD[i, t] <= model.M*model.Y[i, t]
 model.ChangeDefinitionHD = Constraint(model.I, model.T, rule=change_definition_rule_hd)
 
 def change_definition_rule_pp(model, i, t):
+    if i == model.I.first():
+        return Constraint.Skip
     return model.P[i, t] >= model.P[model.I.prev(i), t]
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
 
 # Instanciación y resolución del modelo
 dp = DataPortal()
-dp.load(filename='Asignacion_consumos.csv', param=model.k, index=(model.I, model.T))
-dp.load(filename='Asignacion_tramos.csv', param=(model.c, model.P0), index=model.I)
-inst=model.create_instance(dp, name=Asignacion)
-opt = SolverFactory('gurobi')
+dp.load(filename='Asignacion_consumos.csv', param='k', index=('T','I'))
+dp.load(filename='Asignacion_tramos.csv', param=('c', 'P0'), index='I')
+inst=model.create_instance(dp, name="Asignacion")
+opt = SolverFactory('cbc')
 results = opt.solve(inst, tee=True, options={'MIPGap': 0.05})
 inst.solutions.load_from(results)
 #inst.display()
