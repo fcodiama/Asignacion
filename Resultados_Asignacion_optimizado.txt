@@ -1,212 +1,205 @@
 === VALOR DE LA FUNCIÓN OBJETIVO ===
-Objetivo = 71239.8769 €
+Objetivo = 59976.2549 €
 
 === RESUMEN GLOBAL ===
-  Total HU (aumentos)      = 74.00 kW
-  Total HD (disminuciones)  = 0.00 kW
-  Total S  (sobrepasos)     = 693.00 kW
-  Total E  (exceso >5%)     = 564.00 kW
-  Nº cambios (Y=1)          = 2
+  Total HU (aumentos)         = 215.00 kW
+  Total HD (disminuciones)     = 0.00 kW
+  Total S  (sobrepasos)        = 38.00 kW
+  Total E  (exceso >5%)        = 0.00 kW
+  Total U (max subidas por t)  = 43.00 kW
+  Total D (max bajadas por t)  = 0.00 kW
+  Nº periodos con cambios Y    = 1
+
+
+
+=== PERIODOS CON ACTIVACIÓN DE CAMBIOS Y(t) ===
+  t=1: Y[t] = 1
+
+=== CAMBIOS Y COSTES ASOCIADOS POR PERIODO ===
+
+Periodo t = 1:
+  Y[t] = 1  -> Se paga coste fijo (ce+cv).
+  U[t] (máx subida considerada en coste) = 43.00 kW
+  D[t] (máx bajada considerada en coste) = 0.00 kW
+  Tramo i=1: HU=43.00 kW, HD=0.00 kW  -> COSTE potencia por subida contabilizada en U[t]
+  Tramo i=2: HU=43.00 kW, HD=0.00 kW  -> COSTE potencia por subida contabilizada en U[t]
+  Tramo i=3: HU=43.00 kW, HD=0.00 kW  -> COSTE potencia por subida contabilizada en U[t]
+  Tramo i=4: HU=43.00 kW, HD=0.00 kW  -> COSTE potencia por subida contabilizada en U[t]
+  Tramo i=5: HU=43.00 kW, HD=0.00 kW  -> COSTE potencia por subida contabilizada en U[t]
 
 === RESUMEN POR TRAMO ===
 
 Tramo i=1:
-  P0 inicial           = 110.00 kW
-  P final (t=12) = 110.00 kW
-  P máxima             = 110.00 kW
-  Total HU (aumentos)  = 0.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 196.00 kW
-  Total E (>5% exceso) = 176.00 kW
-  Nº cambios Y         = 0
+  P0 inicial                 = 110.00 kW
+  P final (t=12) = 153.00 kW
+  P máxima                   = 153.00 kW
+  Total HU (aumentos)        = 43.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 24.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 1
 
 Tramo i=2:
-  P0 inicial           = 115.00 kW
-  P final (t=12) = 115.00 kW
-  P máxima             = 115.00 kW
-  Total HU (aumentos)  = 0.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 220.00 kW
-  Total E (>5% exceso) = 195.00 kW
-  Nº cambios Y         = 0
+  P0 inicial                 = 115.00 kW
+  P final (t=12) = 158.00 kW
+  P máxima                   = 158.00 kW
+  Total HU (aumentos)        = 43.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 5.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 1
 
 Tramo i=3:
-  P0 inicial           = 115.00 kW
-  P final (t=12) = 115.00 kW
-  P máxima             = 115.00 kW
-  Total HU (aumentos)  = 0.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 218.00 kW
-  Total E (>5% exceso) = 193.00 kW
-  Nº cambios Y         = 0
+  P0 inicial                 = 115.00 kW
+  P final (t=12) = 158.00 kW
+  P máxima                   = 158.00 kW
+  Total HU (aumentos)        = 43.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 3.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 1
 
 Tramo i=4:
-  P0 inicial           = 115.00 kW
-  P final (t=12) = 152.00 kW
-  P máxima             = 152.00 kW
-  Total HU (aumentos)  = 37.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 39.00 kW
-  Total E (>5% exceso) = 0.00 kW
-  Nº cambios Y         = 1
+  P0 inicial                 = 115.00 kW
+  P final (t=12) = 158.00 kW
+  P máxima                   = 158.00 kW
+  Total HU (aumentos)        = 43.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 4.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 1
 
 Tramo i=5:
-  P0 inicial           = 115.00 kW
-  P final (t=12) = 152.00 kW
-  P máxima             = 152.00 kW
-  Total HU (aumentos)  = 37.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 20.00 kW
-  Total E (>5% exceso) = 0.00 kW
-  Nº cambios Y         = 1
+  P0 inicial                 = 115.00 kW
+  P final (t=12) = 158.00 kW
+  P máxima                   = 158.00 kW
+  Total HU (aumentos)        = 43.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 2.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 1
 
 Tramo i=6:
-  P0 inicial           = 288.00 kW
+  P0 inicial                 = 288.00 kW
   P final (t=12) = 288.00 kW
-  P máxima             = 288.00 kW
-  Total HU (aumentos)  = 0.00 kW
-  Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 0.00 kW
-  Total E (>5% exceso) = 0.00 kW
-  Nº cambios Y         = 0
+  P máxima                   = 288.00 kW
+  Total HU (aumentos)        = 0.00 kW
+  Total HD (bajadas)         = 0.00 kW
+  Total S (sobrepasos)       = 0.00 kW
+  Total E (>5% exceso)       = 0.00 kW
+  Nº periodos con cambios i  = 0
+
+=== SOBREPASOS S(i,t) (solo S>0) ===
+  i=1, t=1: S=6.00 kW
+  i=1, t=2: S=6.00 kW
+  i=1, t=7: S=6.00 kW
+  i=1, t=12: S=6.00 kW
+  i=2, t=1: S=1.00 kW
+  i=2, t=2: S=1.00 kW
+  i=2, t=3: S=1.00 kW
+  i=2, t=7: S=1.00 kW
+  i=2, t=11: S=1.00 kW
+  i=3, t=3: S=1.00 kW
+  i=3, t=8: S=1.00 kW
+  i=3, t=11: S=1.00 kW
+  i=4, t=4: S=1.00 kW
+  i=4, t=5: S=1.00 kW
+  i=4, t=6: S=1.00 kW
+  i=4, t=8: S=1.00 kW
+  i=5, t=4: S=1.00 kW
+  i=5, t=5: S=1.00 kW
+
+=== EXCESOS E(i,t) (solo E>0) ===
+  No hubo excesos (E=0 en todos los periodos).
 
 === POTENCIAS P(i,t) ===
 
 Tramo i = 1
-  P[1,1] = 110.00
-  P[1,2] = 110.00
-  P[1,3] = 110.00
-  P[1,4] = 110.00
-  P[1,5] = 110.00
-  P[1,6] = 110.00
-  P[1,7] = 110.00
-  P[1,8] = 110.00
-  P[1,9] = 110.00
-  P[1,10] = 110.00
-  P[1,11] = 110.00
-  P[1,12] = 110.00
+  P[1,1] = 153.00 kW
+  P[1,2] = 153.00 kW
+  P[1,3] = 153.00 kW
+  P[1,4] = 153.00 kW
+  P[1,5] = 153.00 kW
+  P[1,6] = 153.00 kW
+  P[1,7] = 153.00 kW
+  P[1,8] = 153.00 kW
+  P[1,9] = 153.00 kW
+  P[1,10] = 153.00 kW
+  P[1,11] = 153.00 kW
+  P[1,12] = 153.00 kW
 
 Tramo i = 2
-  P[2,1] = 115.00
-  P[2,2] = 115.00
-  P[2,3] = 115.00
-  P[2,4] = 115.00
-  P[2,5] = 115.00
-  P[2,6] = 115.00
-  P[2,7] = 115.00
-  P[2,8] = 115.00
-  P[2,9] = 115.00
-  P[2,10] = 115.00
-  P[2,11] = 115.00
-  P[2,12] = 115.00
+  P[2,1] = 158.00 kW
+  P[2,2] = 158.00 kW
+  P[2,3] = 158.00 kW
+  P[2,4] = 158.00 kW
+  P[2,5] = 158.00 kW
+  P[2,6] = 158.00 kW
+  P[2,7] = 158.00 kW
+  P[2,8] = 158.00 kW
+  P[2,9] = 158.00 kW
+  P[2,10] = 158.00 kW
+  P[2,11] = 158.00 kW
+  P[2,12] = 158.00 kW
 
 Tramo i = 3
-  P[3,1] = 115.00
-  P[3,2] = 115.00
-  P[3,3] = 115.00
-  P[3,4] = 115.00
-  P[3,5] = 115.00
-  P[3,6] = 115.00
-  P[3,7] = 115.00
-  P[3,8] = 115.00
-  P[3,9] = 115.00
-  P[3,10] = 115.00
-  P[3,11] = 115.00
-  P[3,12] = 115.00
+  P[3,1] = 158.00 kW
+  P[3,2] = 158.00 kW
+  P[3,3] = 158.00 kW
+  P[3,4] = 158.00 kW
+  P[3,5] = 158.00 kW
+  P[3,6] = 158.00 kW
+  P[3,7] = 158.00 kW
+  P[3,8] = 158.00 kW
+  P[3,9] = 158.00 kW
+  P[3,10] = 158.00 kW
+  P[3,11] = 158.00 kW
+  P[3,12] = 158.00 kW
 
 Tramo i = 4
-  P[4,1] = 115.00
-  P[4,2] = 115.00
-  P[4,3] = 152.00
-  P[4,4] = 152.00
-  P[4,5] = 152.00
-  P[4,6] = 152.00
-  P[4,7] = 152.00
-  P[4,8] = 152.00
-  P[4,9] = 152.00
-  P[4,10] = 152.00
-  P[4,11] = 152.00
-  P[4,12] = 152.00
+  P[4,1] = 158.00 kW
+  P[4,2] = 158.00 kW
+  P[4,3] = 158.00 kW
+  P[4,4] = 158.00 kW
+  P[4,5] = 158.00 kW
+  P[4,6] = 158.00 kW
+  P[4,7] = 158.00 kW
+  P[4,8] = 158.00 kW
+  P[4,9] = 158.00 kW
+  P[4,10] = 158.00 kW
+  P[4,11] = 158.00 kW
+  P[4,12] = 158.00 kW
 
 Tramo i = 5
-  P[5,1] = 115.00
-  P[5,2] = 152.00
-  P[5,3] = 152.00
-  P[5,4] = 152.00
-  P[5,5] = 152.00
-  P[5,6] = 152.00
-  P[5,7] = 152.00
-  P[5,8] = 152.00
-  P[5,9] = 152.00
-  P[5,10] = 152.00
-  P[5,11] = 152.00
-  P[5,12] = 152.00
+  P[5,1] = 158.00 kW
+  P[5,2] = 158.00 kW
+  P[5,3] = 158.00 kW
+  P[5,4] = 158.00 kW
+  P[5,5] = 158.00 kW
+  P[5,6] = 158.00 kW
+  P[5,7] = 158.00 kW
+  P[5,8] = 158.00 kW
+  P[5,9] = 158.00 kW
+  P[5,10] = 158.00 kW
+  P[5,11] = 158.00 kW
+  P[5,12] = 158.00 kW
 
 Tramo i = 6
-  P[6,1] = 288.00
-  P[6,2] = 288.00
-  P[6,3] = 288.00
-  P[6,4] = 288.00
-  P[6,5] = 288.00
-  P[6,6] = 288.00
-  P[6,7] = 288.00
-  P[6,8] = 288.00
-  P[6,9] = 288.00
-  P[6,10] = 288.00
-  P[6,11] = 288.00
-  P[6,12] = 288.00
+  P[6,1] = 288.00 kW
+  P[6,2] = 288.00 kW
+  P[6,3] = 288.00 kW
+  P[6,4] = 288.00 kW
+  P[6,5] = 288.00 kW
+  P[6,6] = 288.00 kW
+  P[6,7] = 288.00 kW
+  P[6,8] = 288.00 kW
+  P[6,9] = 288.00 kW
+  P[6,10] = 288.00 kW
+  P[6,11] = 288.00 kW
+  P[6,12] = 288.00 kW
 
 
-=== SOBREPASOS S(i,t) ===
-  S[1,1] = 49.00
-  S[1,2] = 49.00
-  S[1,7] = 49.00
-  S[1,12] = 49.00
-  S[2,1] = 44.00
-  S[2,2] = 44.00
-  S[2,3] = 44.00
-  S[2,7] = 44.00
-  S[2,11] = 44.00
-  S[3,3] = 44.00
-  S[3,6] = 43.00
-  S[3,8] = 44.00
-  S[3,9] = 43.00
-  S[3,11] = 44.00
-  S[4,4] = 7.00
-  S[4,5] = 7.00
-  S[4,6] = 7.00
-  S[4,8] = 7.00
-  S[4,9] = 5.00
-  S[4,10] = 6.00
-  S[5,4] = 7.00
-  S[5,5] = 7.00
-  S[5,8] = 6.00
-
-
-=== EXCESOS E(i,t) ===
-  E[1,1] = 44.00
-  E[1,2] = 44.00
-  E[1,7] = 44.00
-  E[1,12] = 44.00
-  E[2,1] = 39.00
-  E[2,2] = 39.00
-  E[2,3] = 39.00
-  E[2,7] = 39.00
-  E[2,11] = 39.00
-  E[3,3] = 39.00
-  E[3,6] = 38.00
-  E[3,8] = 39.00
-  E[3,9] = 38.00
-  E[3,11] = 39.00
-
-
-=== CAMBIOS HU / HD ===
-  i=4, t=3: HU=37.00, HD=0.00
-  i=5, t=2: HU=37.00, HD=0.00
-
-
-=== ACTIVACIONES Y(i,t) ===
-  Y[4,3] = 1
-  Y[5,2] = 1
+=== PERIODOS CON ACTIVACIÓN DE CAMBIOS Y(t) ===
+  t=1: Y[t] = 1
 
 === FIN DE RESULTADOS ===
