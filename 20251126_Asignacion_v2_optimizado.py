@@ -31,8 +31,8 @@ model.Y = Var(model.I, model.T, domain=Binary)  # Indicador de cambios realizado
 # Función Objetivo
 def objective_rule(model):
     fixed_costs = sum((model.ce + model.cv)*model.Y[i,t] for i in model.I for t in model.T)
-    variable_costs = sum((model.cde + model.cda) * model.HU[i, t] + (model.cde + model.cda)*model.HD[i, t] + model.c[i]*2*model.E[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
-    #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
+    variable_costs = sum((model.cde + model.cda) * model.HU[i, t] + (model.cde + model.cda)*model.HD[i, t] + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t])+ model.c[i]*model.k[t,i] for i in model.I for t in model.T)
+   #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
     return fixed_costs + variable_costs
 model.Objective = Objective(rule=objective_rule, sense=minimize)
 
@@ -232,7 +232,7 @@ print("\n================ FIN DE RESULTADOS ================\n")
 # ======= BLOQUE DE EXPORTACIÓN A TXT =======
 from pyomo.environ import value
 
-with open("Resultados_Asignacion.txt", "w") as f:
+with open("Resultados_Asignacion_optimizado.txt", "w") as f:
 
     # 1. OBJETIVO
     f.write("=== VALOR DE LA FUNCIÓN OBJETIVO ===\n")
@@ -353,5 +353,5 @@ with open("Resultados_Asignacion.txt", "w") as f:
 
     f.write("\n=== FIN DE RESULTADOS ===\n")
 
-print("Archivo generado: Resultados_Asignacion.txt")
+print("Archivo generado: Resultados_Asignacion_optimizado.txt")
 # ==============================================

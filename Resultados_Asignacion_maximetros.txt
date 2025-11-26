@@ -1,11 +1,11 @@
 === VALOR DE LA FUNCIÓN OBJETIVO ===
-Objetivo = 932.0934 €
+Objetivo = 379.9031 €
 
 === RESUMEN GLOBAL ===
   Total HU (aumentos)      = 0.00 kW
   Total HD (disminuciones)  = 0.00 kW
-  Total S  (sobrepasos)     = 1026.00 kW
-  Total E  (exceso >5%)     = 911.00 kW
+  Total S  (sobrepasos)     = 41.00 kW
+  Total E  (exceso >5%)     = 36.00 kW
   Nº cambios (Y=1)          = 0
 
 === RESUMEN POR TRAMO ===
@@ -16,8 +16,8 @@ Tramo i=1:
   P máxima             = 110.00 kW
   Total HU (aumentos)  = 0.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 196.00 kW
-  Total E (>5% exceso) = 176.00 kW
+  Total S (sobrepasos) = 0.00 kW
+  Total E (>5% exceso) = 0.00 kW
   Nº cambios Y         = 0
 
 Tramo i=2:
@@ -26,8 +26,8 @@ Tramo i=2:
   P máxima             = 115.00 kW
   Total HU (aumentos)  = 0.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 220.00 kW
-  Total E (>5% exceso) = 195.00 kW
+  Total S (sobrepasos) = 0.00 kW
+  Total E (>5% exceso) = 0.00 kW
   Nº cambios Y         = 0
 
 Tramo i=3:
@@ -36,8 +36,8 @@ Tramo i=3:
   P máxima             = 115.00 kW
   Total HU (aumentos)  = 0.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 218.00 kW
-  Total E (>5% exceso) = 193.00 kW
+  Total S (sobrepasos) = 0.00 kW
+  Total E (>5% exceso) = 0.00 kW
   Nº cambios Y         = 0
 
 Tramo i=4:
@@ -46,8 +46,8 @@ Tramo i=4:
   P máxima             = 115.00 kW
   Total HU (aumentos)  = 0.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 261.00 kW
-  Total E (>5% exceso) = 231.00 kW
+  Total S (sobrepasos) = 41.00 kW
+  Total E (>5% exceso) = 36.00 kW
   Nº cambios Y         = 0
 
 Tramo i=5:
@@ -56,8 +56,8 @@ Tramo i=5:
   P máxima             = 115.00 kW
   Total HU (aumentos)  = 0.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 131.00 kW
-  Total E (>5% exceso) = 116.00 kW
+  Total S (sobrepasos) = 0.00 kW
+  Total E (>5% exceso) = 0.00 kW
   Nº cambios Y         = 0
 
 Tramo i=6:
@@ -158,55 +158,11 @@ Tramo i = 6
 
 
 === SOBREPASOS S(i,t) ===
-  S[1,1] = 49.00
-  S[1,2] = 49.00
-  S[1,7] = 49.00
-  S[1,12] = 49.00
-  S[2,1] = 44.00
-  S[2,2] = 44.00
-  S[2,3] = 44.00
-  S[2,7] = 44.00
-  S[2,11] = 44.00
-  S[3,3] = 44.00
-  S[3,6] = 43.00
-  S[3,8] = 44.00
-  S[3,9] = 43.00
-  S[3,11] = 44.00
-  S[4,4] = 44.00
-  S[4,5] = 44.00
-  S[4,6] = 44.00
-  S[4,8] = 44.00
-  S[4,9] = 42.00
-  S[4,10] = 43.00
-  S[5,4] = 44.00
-  S[5,5] = 44.00
-  S[5,8] = 43.00
+  S[4,9] = 41.00
 
 
 === EXCESOS E(i,t) ===
-  E[1,1] = 44.00
-  E[1,2] = 44.00
-  E[1,7] = 44.00
-  E[1,12] = 44.00
-  E[2,1] = 39.00
-  E[2,2] = 39.00
-  E[2,3] = 39.00
-  E[2,7] = 39.00
-  E[2,11] = 39.00
-  E[3,3] = 39.00
-  E[3,6] = 38.00
-  E[3,8] = 39.00
-  E[3,9] = 38.00
-  E[3,11] = 39.00
-  E[4,4] = 39.00
-  E[4,5] = 39.00
-  E[4,6] = 39.00
-  E[4,8] = 39.00
-  E[4,9] = 37.00
-  E[4,10] = 38.00
-  E[5,4] = 39.00
-  E[5,5] = 39.00
-  E[5,8] = 38.00
+  E[4,9] = 36.00
 
 
 === CAMBIOS HU / HD ===
