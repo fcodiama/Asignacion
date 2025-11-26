@@ -1,5 +1,5 @@
 === VALOR DE LA FUNCIÓN OBJETIVO ===
-Objetivo = 379.9031 €
+Objetivo = 17075.9383 €
 
 === RESUMEN GLOBAL ===
   Total HU (aumentos)      = 0.00 kW

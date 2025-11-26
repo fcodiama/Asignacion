@@ -1,12 +1,12 @@
 === VALOR DE LA FUNCIÓN OBJETIVO ===
-Objetivo = 932.0934 €
+Objetivo = 71239.8769 €
 
 === RESUMEN GLOBAL ===
-  Total HU (aumentos)      = 0.00 kW
+  Total HU (aumentos)      = 74.00 kW
   Total HD (disminuciones)  = 0.00 kW
-  Total S  (sobrepasos)     = 1026.00 kW
-  Total E  (exceso >5%)     = 911.00 kW
-  Nº cambios (Y=1)          = 0
+  Total S  (sobrepasos)     = 693.00 kW
+  Total E  (exceso >5%)     = 564.00 kW
+  Nº cambios (Y=1)          = 2
 
 === RESUMEN POR TRAMO ===
 
@@ -42,23 +42,23 @@ Tramo i=3:
 
 Tramo i=4:
   P0 inicial           = 115.00 kW
-  P final (t=12) = 115.00 kW
-  P máxima             = 115.00 kW
-  Total HU (aumentos)  = 0.00 kW
+  P final (t=12) = 152.00 kW
+  P máxima             = 152.00 kW
+  Total HU (aumentos)  = 37.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 261.00 kW
-  Total E (>5% exceso) = 231.00 kW
-  Nº cambios Y         = 0
+  Total S (sobrepasos) = 39.00 kW
+  Total E (>5% exceso) = 0.00 kW
+  Nº cambios Y         = 1
 
 Tramo i=5:
   P0 inicial           = 115.00 kW
-  P final (t=12) = 115.00 kW
-  P máxima             = 115.00 kW
-  Total HU (aumentos)  = 0.00 kW
+  P final (t=12) = 152.00 kW
+  P máxima             = 152.00 kW
+  Total HU (aumentos)  = 37.00 kW
   Total HD (bajadas)   = 0.00 kW
-  Total S (sobrepasos) = 131.00 kW
-  Total E (>5% exceso) = 116.00 kW
-  Nº cambios Y         = 0
+  Total S (sobrepasos) = 20.00 kW
+  Total E (>5% exceso) = 0.00 kW
+  Nº cambios Y         = 1
 
 Tramo i=6:
   P0 inicial           = 288.00 kW
@@ -117,30 +117,30 @@ Tramo i = 3
 Tramo i = 4
   P[4,1] = 115.00
   P[4,2] = 115.00
-  P[4,3] = 115.00
-  P[4,4] = 115.00
-  P[4,5] = 115.00
-  P[4,6] = 115.00
-  P[4,7] = 115.00
-  P[4,8] = 115.00
-  P[4,9] = 115.00
-  P[4,10] = 115.00
-  P[4,11] = 115.00
-  P[4,12] = 115.00
+  P[4,3] = 152.00
+  P[4,4] = 152.00
+  P[4,5] = 152.00
+  P[4,6] = 152.00
+  P[4,7] = 152.00
+  P[4,8] = 152.00
+  P[4,9] = 152.00
+  P[4,10] = 152.00
+  P[4,11] = 152.00
+  P[4,12] = 152.00
 
 Tramo i = 5
   P[5,1] = 115.00
-  P[5,2] = 115.00
-  P[5,3] = 115.00
-  P[5,4] = 115.00
-  P[5,5] = 115.00
-  P[5,6] = 115.00
-  P[5,7] = 115.00
-  P[5,8] = 115.00
-  P[5,9] = 115.00
-  P[5,10] = 115.00
-  P[5,11] = 115.00
-  P[5,12] = 115.00
+  P[5,2] = 152.00
+  P[5,3] = 152.00
+  P[5,4] = 152.00
+  P[5,5] = 152.00
+  P[5,6] = 152.00
+  P[5,7] = 152.00
+  P[5,8] = 152.00
+  P[5,9] = 152.00
+  P[5,10] = 152.00
+  P[5,11] = 152.00
+  P[5,12] = 152.00
 
 Tramo i = 6
   P[6,1] = 288.00
@@ -172,15 +172,15 @@ Tramo i = 6
   S[3,8] = 44.00
   S[3,9] = 43.00
   S[3,11] = 44.00
-  S[4,4] = 44.00
-  S[4,5] = 44.00
-  S[4,6] = 44.00
-  S[4,8] = 44.00
-  S[4,9] = 42.00
-  S[4,10] = 43.00
-  S[5,4] = 44.00
-  S[5,5] = 44.00
-  S[5,8] = 43.00
+  S[4,4] = 7.00
+  S[4,5] = 7.00
+  S[4,6] = 7.00
+  S[4,8] = 7.00
+  S[4,9] = 5.00
+  S[4,10] = 6.00
+  S[5,4] = 7.00
+  S[5,5] = 7.00
+  S[5,8] = 6.00
 
 
 === EXCESOS E(i,t) ===
@@ -198,22 +198,15 @@ Tramo i = 6
   E[3,8] = 39.00
   E[3,9] = 38.00
   E[3,11] = 39.00
-  E[4,4] = 39.00
-  E[4,5] = 39.00
-  E[4,6] = 39.00
-  E[4,8] = 39.00
-  E[4,9] = 37.00
-  E[4,10] = 38.00
-  E[5,4] = 39.00
-  E[5,5] = 39.00
-  E[5,8] = 38.00
 
 
 === CAMBIOS HU / HD ===
-  No hubo HU ni HD.
+  i=4, t=3: HU=37.00, HD=0.00
+  i=5, t=2: HU=37.00, HD=0.00
 
 
 === ACTIVACIONES Y(i,t) ===
-  No hubo activaciones de cambio.
+  Y[4,3] = 1
+  Y[5,2] = 1
 
 === FIN DE RESULTADOS ===
