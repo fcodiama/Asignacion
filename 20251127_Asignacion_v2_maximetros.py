@@ -25,12 +25,17 @@ model.HU = Var(model.I, model.T, domain=NonNegativeIntegers)  # Indicador de aum
 model.HD = Var(model.I, model.T, domain=NonNegativeIntegers)  # Indicador de disminución de potencia
 model.S = Var(model.I, model.T, domain=NonNegativeIntegers)  # Indicador de sobrepaso de potencia
 model.E = Var(model.I, model.T, domain=NonNegativeIntegers)  # sobrepaso de potencia por encima del 5% de P
-model.Y = Var(model.I, model.T, domain=Binary)  # Indicador de cambios realizados
+model.Y = Var(model.T, domain=Binary)  # Indicador de cambios realizados
+# Variables auxiliares: cambio máximo por periodo (para costes)
+model.U = Var(model.T, domain=NonNegativeIntegers)  # cambio máximo de subida en t
+model.D = Var(model.T, domain=NonNegativeIntegers)  # cambio máximo de bajada en t
+
+
 
 # Función Objetivo
 def objective_rule(model):
-    fixed_costs = sum((model.ce + model.cv)*model.Y[i,t] for i in model.I for t in model.T)
-    variable_costs = sum((model.cde + model.cda) * model.HU[i, t] + (model.cde + model.cda)*model.HD[i, t] + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t])+ model.c[i]*model.k[t,i] for i in model.I for t in model.T)
+    fixed_costs = sum((model.ce + model.cv)*model.Y[t] for t in model.T)
+    variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t])+ model.c[i]*model.k[t,i] for i in model.I for t in model.T)
     #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
     return fixed_costs + variable_costs
 model.Objective = Objective(rule=objective_rule, sense=minimize)
@@ -63,24 +68,38 @@ def excess_over_5pct_upper_rule(model, i, t):
 model.ExcessOver5PctUpper = Constraint(model.I, model.T, rule=excess_over_5pct_upper_rule)
 
 
-def change_limit_rule(model, i):
-    return sum(model.Y[i, t] for i in model.I for t in model.T) <= model.N
-model.ChangeLimit = Constraint(model.I, rule=change_limit_rule)
+def change_limit_rule(model):
+    # Máximo N periodos con cambios en todo el año
+    return sum(model.Y[t] for t in model.T) <= model.N
+model.ChangeLimit = Constraint(rule=change_limit_rule)
+
 
 def change_definition_rule_hu(model, i, t):
-    return model.HU[i, t] <= model.M*model.Y[i, t]
+    # Si hay HU en (i,t), entonces Y[t] debe ser 1
+    return model.HU[i, t] <= model.M * model.Y[t]
 model.ChangeDefinitionHU = Constraint(model.I, model.T, rule=change_definition_rule_hu)
 
 def change_definition_rule_hd(model, i, t):
-    return model.HD[i, t] <= model.M*model.Y[i, t]
+    # Si hay HD en (i,t), entonces Y[t] debe ser 1
+    return model.HD[i, t] <= model.M * model.Y[t]
 model.ChangeDefinitionHD = Constraint(model.I, model.T, rule=change_definition_rule_hd)
+
+def max_up_change_rule(model, i, t):
+    # U[t] >= HU[i,t] para todo i
+    return model.U[t] >= model.HU[i, t]
+model.MaxUpChange = Constraint(model.I, model.T, rule=max_up_change_rule)
+
+def max_down_change_rule(model, i, t):
+    # D[t] >= HD[i,t] para todo i
+    return model.D[t] >= model.HD[i, t]
+model.MaxDownChange = Constraint(model.I, model.T, rule=max_down_change_rule)
+
 
 def change_definition_rule_pp(model, i, t):
     if i == model.I.first():
         return Constraint.Skip
     return model.P[i, t] >= model.P[model.I.prev(i), t]
 model.ChangeDefinitionP = Constraint(model.I, model.T, rule=change_definition_rule_pp)
-
 
 '''
 def power_minimum_rule(model, i, t):
@@ -232,7 +251,7 @@ print("\n================ FIN DE RESULTADOS ================\n")
 # ======= BLOQUE DE EXPORTACIÓN A TXT =======
 from pyomo.environ import value
 
-with open("Resultados_Asignacion_optimizado.txt", "w") as f:
+with open("Resultados_Asignacion_maximetros.txt", "w") as f:
 
     # ====================================================
     # 1. VALOR DE LA FUNCIÓN OBJETIVO
@@ -484,5 +503,5 @@ with open("Resultados_Asignacion_optimizado.txt", "w") as f:
         
     f.write("\n=== FIN DE RESULTADOS ===\n")
 
-print("Archivo generado: Resultados_Asignacion_optimizado.txt")
+print("Archivo generado: Resultados_Asignacion_maximetros.txt")
 # =====================================================================
