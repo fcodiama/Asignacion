@@ -35,8 +35,9 @@ model.D = Var(model.T, domain=NonNegativeIntegers)  # cambio máximo de bajada e
 # Función Objetivo
 def objective_rule(model):
     fixed_costs = sum((model.ce + model.cv)*model.Y[t] for t in model.T)
-    variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t])+ model.c[i]*model.k[t,i] for i in model.I for t in model.T)
-    #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
+    #variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t]) for i in model.I for t in model.T)
+    variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) for t in model.T) + sum(model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t]) for i in model.I for t in model.T)
+    #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)return fixed_costs + variable_costs
     return fixed_costs + variable_costs
 model.Objective = Objective(rule=objective_rule, sense=minimize)
 

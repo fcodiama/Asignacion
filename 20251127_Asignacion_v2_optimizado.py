@@ -35,7 +35,8 @@ model.D = Var(model.T, domain=NonNegativeIntegers)  # cambio máximo de bajada e
 # Función Objetivo
 def objective_rule(model):
     fixed_costs = sum((model.ce + model.cv)*model.Y[t] for t in model.T)
-    variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t])+ model.c[i]*model.k[t,i] for i in model.I for t in model.T)
+    #variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) + model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t]) for i in model.I for t in model.T)
+    variable_costs = sum((model.cde + model.cda) * (model.U[t] + model.D[t]) for t in model.T) + sum(model.c[i]*2*model.E[i, t] + model.c[i]*(model.S[i,t]-model.E[i,t]) for i in model.I for t in model.T)
     #variable_costs = sum(model.c[i]*2*model.S[i, t] + model.c[i]*model.k[t,i] for i in model.I for t in model.T)
     return fixed_costs + variable_costs
 model.Objective = Objective(rule=objective_rule, sense=minimize)
@@ -502,6 +503,29 @@ with open("Resultados_Asignacion_optimizado.txt", "w") as f:
 
         
     f.write("\n=== FIN DE RESULTADOS ===\n")
+
+    # ====================================================
+    # 10. VALORES COMPLETOS DE U[t] Y D[t]
+    # ====================================================
+    if hasattr(inst, "U") and hasattr(inst, "D"):
+        f.write("\n=== VALORES COMPLETOS DE U[t] Y D[t] ===\n")
+
+        for t in inst.T:
+            Ut = value(inst.U[t])
+            Dt = value(inst.D[t])
+
+            comentario = ""
+            if Ut > 1e-6 or Dt > 1e-6:
+                comentario = "  <-- periodo con cambio relevante"
+            else:
+                comentario = ""
+
+            f.write(
+                f"  t={t:2d}:  U[t]={Ut:8.2f} kW   D[t]={Dt:8.2f} kW{comentario}\n"
+            )
+    else:
+        f.write("\n[AVISO] El modelo no tiene variables U[t] y D[t].\n")
+
 
 print("Archivo generado: Resultados_Asignacion_optimizado.txt")
 # =====================================================================
